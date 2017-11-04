@@ -43,3 +43,33 @@ parameter of your token bucket to?(Round to the nearest tenth of a MB, i.e., one
 and forwarding rate), would you use Counters, Flow Monitoring, or PacketMonitoring? Explain why.
 
   - you only need to use counters in this particular case
+
+Content Distribution
+======================
+
+27.  If your browser has a page in the cache and wants to know if the page is still fresh and can be used, or is too old and should be replaced with fresh content from the server, which HTTPmethod should it use to find out?(If you are familiar with the If-Modified-Since header field, which we have not discussed in thisclass, please assume that we are not using If-Modified-Since.)
+
+  - HEAD is the one you want. Otherwise you'd use a GET
+
+28.  Consider the HTTP protocol. What will cause a server to send a response message with thestatus code...
+  a. 404 Not Found ?
+    - this is a client-side error. If the client requests a url or subdomain that doesn't exist, the server will respond with a 404.
+
+  b. 302 Moved Temporarily (also sometimes called 302 Found) ?
+    - this is a redirect. If the application code (server side) implements a redirect, it with repyl with a 302.
+
+  c. 200 OK ?
+    - success response
+
+29.  Consider the HTTP protocol. What would the following header fields be used for?
+  a. Last-Modified
+  b. Host
+  c. Cookie
+
+30.  Of the various methods to redirect web requests to CDN servers, DNS redirection is themost common. Why would this method be more popular than the alternatives?
+
+31.  How does BitTorrent implement the tit-for-tat algorithm? Be sure to explain in detail,including the roles of both choking and unchoking.
+
+32.  In a distributed hash table, how many steps (hops) are required to lookup an item if thefinger table is a constant size (i.e., its size does not depend on the number of DHT nodes in thesystem)? Explain why that is the right answer.
+
+33.  For a more typical DHT setup where the finger table has O(log N) entries, for N DHT nodesin the system, explain why the number of steps to access an item is O(log N).
