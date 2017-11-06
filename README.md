@@ -44,6 +44,46 @@ and forwarding rate), would you use Counters, Flow Monitoring, or PacketMonitori
 
   - you only need to use counters in this particular case
 
+Reading – CUBIC TCP
+======================
+
+6. Why does the linear growth rate of TCP-RENO (1/RTT) perform poorly for short lived flows innetworks with large bandwidth and delay products?
+  - INITIAL: because tcp slow-start doesn't lend itself to short lived flows. It never encounters a congestion event
+
+7. Describe the operation of BIC-TCP’s binary search algorithm for setting the congestionwindow. Once stable, how does BIC-TCP react to changes in available bandwidth, i.e. whathappens when there is a sudden increase or decrease in available bandwidth?
+  - this is worded poorly. Basically describe how the previous Wmax is now the plataeu area
+
+8. How does the replacement of this congestion control algorithm with a cubic growth functionin CUBIC-TCP improve on BIC-TCP? Discuss.
+  - BIC approximates a cubic growth  function, but inefficiently. It uses multiple algorithms for each section of the curve.
+
+9. What is the purpose of the following regions of the CUBIC growth function:
+a. Concave
+  - This is the logarithmic increase to the previous value of Wmax
+b. Plateau
+  - once the previous value of Wmax is reached, the flat portion is to allow the competing flows to achieve stability
+c. Convex
+  - max probing
+
+10. How does CUBIC’s fast convergence mechanism detect a reduction in available bandwidth(i.e. a new flow competing for bandwidth)?
+  - packet loss happens (congestion event)
+
+Reading – TCP Fast Open
+=====================
+
+11.  What kinds of web traffic stand to benefit most from utilizing the TFO option?  How doesTFO improve the performance of these flows?
+WRONG  - sites that initial network response exceeds the 2xRTT
+CORRECT - exactly the opposite. On short-lived connections that are dominated by the RTT
+
+12.  Describe how a trivial implementation of TCP Fast Open (in which the server replies to a allHTTP GET requests with a TCP SYN-ACK packet with data attached) can be exploited to mount asource address spoof attack.  How does TFO prevent this?
+  - the server issues a TFO cookie to prevent this kind of spoofing
+
+Reading - Multi Path TCP (MPTCP)
+=================================
+
+13.  What threat do network middleboxes pose to negotiating MPTCP connections?  How doesthe design of MPTCP mitigate this?
+14.  Why are receive buffer sizes required to be larger for MPTCP enabled connections?  Whatcontrols does MPTCP put in place to maximize memory usage?
+
+
 Content Distribution
 ======================
 
